@@ -20,7 +20,6 @@ def scrap_proxy():
         pickle.dump(px_list, f)
     #print(px_list)
     return px_list
-#"https": "https://" + px,
 def check_proxy(px):
     try:
         requests.get("https://www.wine-searcher.com/", proxies = {"https": "http://" + px}, timeout = 3)
@@ -28,16 +27,6 @@ def check_proxy(px):
         #print('--'+px + ' is dead: '+ x.__class__.__name__)
         return False
     return True
-
-# def check_my_proxy(px):
-#     try:
-#         g.setup(proxy=px)
-#         g.go('http://avito.ru')
-#         # g.go('https://www.wine-searcher.com/')
-#     except Exception as x:
-#         print('--'+px + ' is dead: '+ x.__class__.__name__)
-#         return False
-#     return True
 
 def get_proxy(scrap = False):
     global px_list
@@ -54,9 +43,4 @@ def get_proxy(scrap = False):
             pickle.dump(px_list, f)
     return px
 px_list = []
-# g = Grab()
-# with open("ex", "w") as f:
-#     f.write("Hello")
 print(get_proxy())
-# g.setup(proxy='66.29.154.103:3128')
-# g.go('http://avito.ru')
